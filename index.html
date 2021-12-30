@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width,initial-scale=1">
-     <title>あけおめAR2022</title>
-     <!--A-frameライブラリの読み込み-->
-　   <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-     <!--AR.jsライブラリの読み込み-->
-     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> 
-  </head>
-  <body style="margin:0px; overflow:hidden;">
-     <!--A-frameにAR.jsを紐づける-->
-<!-- OBJ形式のCGモデルの読み込み -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>あけおめAR2022</title>
+</head>
+<body style="margin:0px; overflow:hidden;">
+  <!-- A-Frame ライブラリの読み込み -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- AR.js ライブラリの読み込み -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  
+  <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
+  <a-scene embedded arjs="debugUIEnabled:false;">
+  <!-- OBJ形式のCGモデルの読み込み -->
   <a-assets>
     <a-asset-item id="obj" src="mikan.obj"></a-asset-item>   <!-- objファイル -->
     <a-asset-item id="mtl" src="mikan.mtl"></a-asset-item>   <!-- mtlファイル -->
   </a-assets>
-     <a-marker type="pattern" url="pattern-akeome3.patt">
-   <!--マーカーを登録(プリセットされているhiroマーカーをセット)-->
-       <a-marker preset="pattern-akeome3.png">
-         <!--マーカー上にワイヤーフレーム表示-->
-　       <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
+
+  </a-marker>
+  <!-- マーカーを登録（プリセットされている「人」マーカー） -->
+  <a-marker preset="kanji">
+    <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
     <a-obj-model
       src="#obj"
       mtl="#mtl"
       scale="1 1 1"
-      position="0 0.5 0"       
+      position="0 0.5 0"
       animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
-     </a-marker>
-       <!--AR用のカメラを置く-->
-　    <a-entity camera></a-entity>
-    <a-scene>
-  </body>
+    </a-obj-model>
+  </a-marker>  
+    <!-- AR用のカメラを置く -->
+    <a-entity camera></a-entity>
+ 
+  </a-scene>
+ 
+</body>
 </html>
