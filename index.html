@@ -15,8 +15,12 @@
    <!--マーカーを登録(プリセットされているhiroマーカーをセット)-->
        <a-marker preset="pattern-akeome3.png">
          <!--マーカー上にワイヤーフレーム表示-->
-　       <"mikan9.glb" position="0 0.5 0" ="true"></a-box>
-       </a-marker>
+　       <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
+    <a-obj-model
+      src="#obj"
+      mtl="#mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.5 0"       </a-marker>
        <!--AR用のカメラを置く-->
 　    <a-entity camera></a-entity>
     <a-scene>
