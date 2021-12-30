@@ -11,7 +11,12 @@
   </head>
   <body style="margin:0px; overflow:hidden;">
      <!--A-frameにAR.jsを紐づける-->
- <a-marker type="pattern" url="pattern-akeome3.patt">
+<!-- OBJ形式のCGモデルの読み込み -->
+  <a-assets>
+    <a-asset-item id="obj" src="mikan.obj"></a-asset-item>   <!-- objファイル -->
+    <a-asset-item id="mtl" src="mikan.mtl"></a-asset-item>   <!-- mtlファイル -->
+  </a-assets>
+     <a-marker type="pattern" url="pattern-akeome3.patt">
    <!--マーカーを登録(プリセットされているhiroマーカーをセット)-->
        <a-marker preset="pattern-akeome3.png">
          <!--マーカー上にワイヤーフレーム表示-->
@@ -19,7 +24,7 @@
     <a-obj-model
       src="#obj"
       mtl="#mtl"
-      scale="0.005 0.005 0.005"
+      scale="1 1 1"
       position="0 0.5 0"       
       animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
      </a-marker>
