@@ -1,41 +1,26 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>あけおめAR2022</title>
-</head>
-<body style="margin:0px; overflow:hidden;">
-  <!-- A-Frame ライブラリの読み込み -->
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- AR.js ライブラリの読み込み -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  
-  <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
-  <a-scene embedded arjs="debugUIEnabled:false;patternRatio=0.80">
-  <!-- OBJ形式のCGモデルの読み込み -->
-  <a-assets>
-    <a-asset-item id="obj" src="mikan.obj"></a-asset-item>   <!-- objファイル -->
-    <a-asset-item id="mtl" src="mikan.mtl"></a-asset-item>   <!-- mtlファイル -->
-  </a-assets>    <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
+<!-- A-Frame ライブラリの読み込み -->
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<!-- AR.js ライブラリの読み込み -->
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+<body style='margin:0px; overflow:hidden;'>
+<!-- こっからA-Frame -->
+<a-scene embedded arjs="debugUIEnabled:false;trackingMethod:best;" vr-mode-ui="enabled: false">
+    <!-- オブジェクトファイルとマテリアルファイルを読み込む -->
+    <a-assets>
+        <a-asset-item id="sample-obj" src="mikan.obj"></a-asset-item>
+        <a-asset-item id="sample-mtl" src="mikan.mtl"></a-asset-item>
+    </a-assets>
+　　　　　　　　<!-- こっからARの世界。マーカー上になにを展開するかを書く -->
     <a-marker type=’pattern’ url=’pattern-akeome5.patt’>
-    <a-obj-model
-      src="#obj"
-      mtl="#mtl"
-      scale="1 1 1"
-      position="0 0 0"
-      <a-animation
-          attribute="rotation"
-          to="0 360 0"
-          dur="3000"
-          easing="linear"
-          repeat="indefinite">
-        </a-animation>
-    </a-obj-model>  
-  <!-- AR用のカメラを置く -->
+        <a-obj-model id="mikan" src="#obj" mtl="#mtl" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+       </a-obj-model>
+        position="0 1.3 0" align="center"></a-text>
+    </a-marker>
+    <!-- arなのでこんな感じでカメラが必要らしい。 -->
     <a-entity camera></a-entity>
- 
-  </a-scene>
- 
+</a-scene>
+<!-- ここまででA-Frameおわり -->
 </body>
 </html>
