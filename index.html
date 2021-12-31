@@ -12,10 +12,11 @@
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
     <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIは非表示） -->
-    <a-scene embedded arjs="debugUIEnabled:false;">    <!-- オブジェクトファイルとマテリアルファイルを読み込む -->
+    <a-scene embedded arjs="debugUIEnabled:false;"vr-mode-ui="enabled:false">   
+      <!-- オブジェクトファイルとマテリアルファイルを読み込む -->
     <a-assets>
-        <a-asset-item id="sample-obj" src="mikan.obj"></a-asset-item>
-        <a-asset-item id="sample-mtl" src="mikan.mtl"></a-asset-item>
+        <a-asset-item id="mikan" src="mikan.obj"></a-asset-item>
+        <a-asset-item id="mikan" src="mikan.mtl"></a-asset-item>
     </a-assets>
 　　　　　　　　<!-- こっからARの世界。マーカー上になにを展開するかを書く -->
     <a-marker type=’pattern’ url=’pattern-akeome5.patt’>
