@@ -13,9 +13,13 @@
 
     <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIは非表示） -->
     <a-scene embedded arjs="debugUIEnabled:false;"vr-mode-ui="enabled:false">   
-　　　　　　　　<!-- こっからARの世界。マーカー上になにを展開するかを書く -->
+      <a-assets>
+        <a-asset-item id="mikan" src="mikan.obj"></a-asset-item>
+        <a-asset-item id="mikan" src="mikan.mtl"></a-asset-item>
+    </a-assets>
+      <!-- こっからARの世界。マーカー上になにを展開するかを書く -->
     <a-marker preset="custom" ’pattern’ url=’pattern-akeome5.patt’>
-        <a-obj-model id="mikan" src="#obj" mtl="#mtl" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+        <a-obj-model id="mikan" src="#mikan.obj" mtl="#mikan.mtl" position="0 0 0" scale="1 1 1" rotation="0 0 0">
        </a-obj-model>
         position="0 1.3 0" align="center"></a-text>
     </a-marker>
