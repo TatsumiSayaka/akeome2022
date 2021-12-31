@@ -15,8 +15,8 @@
   <a-scene embedded arjs="debugUIEnabled:false;patternRatio=0.80">
   <!-- OBJ形式のCGモデルの読み込み -->
   <a-assets>
-    <a-asset-item id="obj" src="rocket.obj"></a-asset-item>   <!-- objファイル -->
-    <a-asset-item id="mtl" src="rocket.mtl"></a-asset-item>   <!-- mtlファイル -->
+    <a-asset-item id="obj" src="mikan.obj"></a-asset-item>   <!-- objファイル -->
+    <a-asset-item id="mtl" src="mikan.mtl"></a-asset-item>   <!-- mtlファイル -->
   </a-assets>    <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
     <a-marker type=’pattern’ url=’pattern-akeome5.patt’>
     <a-obj-model
@@ -24,8 +24,15 @@
       mtl="#mtl"
       scale="1 1 1"
       position="0 0 0"
-      animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
-    </a-obj-model>    <!-- AR用のカメラを置く -->
+      <a-animation
+          attribute="rotation"
+          to="0 360 0"
+          dur="3000"
+          easing="linear"
+          repeat="indefinite">
+        </a-animation>
+    </a-obj-model>  
+  <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
  
   </a-scene>
