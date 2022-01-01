@@ -1,31 +1,23 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>あけおめAR2022</title>
-  </head>
-  <body style="margin:0px; overflow:hidden;">
-    <!-- A-Frame ライブラリの読み込み -->
-    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-    <!-- AR.js ライブラリの読み込み -->
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"></script>
+<body style="margin: 0px; overflow: hidden;">
 
-    <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIは非表示） -->
-    <a-scene embedded arjs="debugUIEnabled:false;"vr-mode-ui="enabled:false">   
-      <a-assets>
-        <a-asset-item id="mikan" src="mikan.obj"></a-asset-item>
-        <a-asset-item id="mikan" src="mikan.mtl"></a-asset-item>
+<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+    <a-assets>
+        <a-asset-item id="mikan" src="newmikan.gltf"></a-asset-item>
     </a-assets>
-      <!-- こっからARの世界。マーカー上になにを展開するかを書く -->
-    <a-marker preset="custom" ’pattern’ url=’pattern-akeome5.patt’>
-        <a-obj-model id="mikan" src="#mikan.obj" mtl="#mikan.mtl" position="0 0 0" scale="1 1 1" rotation="0 0 0">
-       </a-obj-model>
-        position="0 1.3 0" align="center"></a-text>
+    
+    <a-marker type="pattern" url="pattern-akemasite.patt">
+        <a-entity   position="0 0 0" 
+                    rotation="0 0 0"
+                    scale="1 1 1"
+                    gltf-model="#mikan" >
+        </a-entity>
     </a-marker>
-    <!-- arなのでこんな感じでカメラが必要らしい。 -->
     <a-entity camera></a-entity>
 </a-scene>
-<!-- ここまででA-Frameおわり -->
 </body>
 </html>
