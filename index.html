@@ -6,10 +6,10 @@
     <a-scene embedded arjs>
       
       <a-assets>
-        <a-asset-item id="mikan" src="mikan.glb"></a-asset-item>
+        <a-asset-item id="mikan" src="mikan10.glb"></a-asset-item>
       </a-assets>
       <a-marker type="pattern" url="pattern-akemasite.patt">
-       <a-glb-model src="#mikan" scale="0.35 0.35 0.35"></a-glb-model>     
+       <a-gltf-model src="#mikan" position="0 0.5 -2" rotation="0 -45 0" scale="0.35 0.35 0.35"></a-gltf-model>     
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
